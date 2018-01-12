@@ -1,6 +1,6 @@
 FROM docker:17.06.2-ce
 
-ENV KUBERNETES_VERSION 1.7.9
+ENV KUBERNETES_VERSION v1.7.9
 ENV DOCKER_COMPOSE_VERSION 1.18.0
 
 RUN apk add --update \
@@ -17,7 +17,7 @@ RUN apk add --update \
     libffi-dev \
   && rm -rf /var/cache/apk/*
 
-RUN curl -o /usr/local/bin/kubectl "curl -LO https://storage.googleapis.com/kubernetes-release/release/"$KUBERNETES_VERSION"/bin/linux/amd64/kubectl" && \
+RUN curl -o /usr/local/bin/kubectl "https://storage.googleapis.com/kubernetes-release/release/"$KUBERNETES_VERSION"/bin/linux/amd64/kubectl" && \
     chmod +x /usr/local/bin/kubectl
 
 
